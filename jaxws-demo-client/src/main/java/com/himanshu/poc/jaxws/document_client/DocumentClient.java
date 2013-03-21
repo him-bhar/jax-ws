@@ -23,6 +23,8 @@ import java.util.Map;
 import javax.xml.ws.BindingProvider;
 import javax.xml.ws.handler.MessageContext;
 
+import com.himanshu.poc.jaxws.document_client.HelloWorldServiceImplServiceExtension;
+
 import gen.com.himanshu.poc.jaxws.stubs.document_type.HelloWorldService;
 import gen.com.himanshu.poc.jaxws.stubs.document_type.HelloWorldServiceImplService;
 
@@ -53,6 +55,11 @@ public class DocumentClient {
         System.out.println(helloWorldService.secureHelloWorldAsString(" SECURE DOCUMENT MY FRIEND"));
         /**********************************************************************/
 
+
+        //Check here I have made the url configurable
+        HelloWorldServiceImplServiceExtension ext = new HelloWorldServiceImplServiceExtension();
+		HelloWorldService helloWorldServiceNew = ext.getPort(HelloWorldService.class);
+		System.out.println(helloWorldServiceNew.getHelloWorldAsString("TTT"));
 
 	}
 

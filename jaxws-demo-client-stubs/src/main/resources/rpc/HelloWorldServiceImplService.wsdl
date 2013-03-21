@@ -8,15 +8,34 @@
   <message name="getHelloWorldAsStringResponse">
     <part name="return" type="xsd:string"/>
   </message>
+  <message name="secureHelloWorldAsString">
+    <part name="arg0" type="xsd:string"/>
+  </message>
+  <message name="secureHelloWorldAsStringResponse">
+    <part name="return" type="xsd:string"/>
+  </message>
   <portType name="HelloWorldService">
     <operation name="getHelloWorldAsString">
       <input message="tns:getHelloWorldAsString"/>
       <output message="tns:getHelloWorldAsStringResponse"/>
     </operation>
+    <operation name="secureHelloWorldAsString">
+      <input message="tns:secureHelloWorldAsString"/>
+      <output message="tns:secureHelloWorldAsStringResponse"/>
+    </operation>
   </portType>
   <binding name="HelloWorldServiceImplPortBinding" type="tns:HelloWorldService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"/>
     <operation name="getHelloWorldAsString">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal" namespace="http://rpc_type.service.jaxws.poc.himanshu.com/"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://rpc_type.service.jaxws.poc.himanshu.com/"/>
+      </output>
+    </operation>
+    <operation name="secureHelloWorldAsString">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal" namespace="http://rpc_type.service.jaxws.poc.himanshu.com/"/>

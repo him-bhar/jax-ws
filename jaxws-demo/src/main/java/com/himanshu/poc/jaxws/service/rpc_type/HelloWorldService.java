@@ -25,5 +25,6 @@ public interface HelloWorldService {
 
 
 	String getHelloWorldAsString(String name);
+	String secureHelloWorldAsString(String name);
 
 }
