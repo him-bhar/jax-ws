@@ -15,17 +15,7 @@
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.1</version>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-					<!-- Was not working -->
-<!-- 					<generatedSourcesDirectory>${project.build.directory}/jaxws/wsimport/java</generatedSourcesDirectory> -->
-				</configuration>
-			</plugin>
+
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>jaxws-maven-plugin</artifactId>
@@ -33,7 +23,7 @@
 
 					<execution>
 						<id>generate-stubs-rpc</id>
-						<phase>process-classes</phase>
+						<phase>generate-sources</phase>
 						<goals>
 							<goal>wsimport</goal>
 						</goals>
@@ -56,7 +46,7 @@
 
 					<execution>
 						<id>generate-stubs-document</id>
-						<phase>process-classes</phase>
+						<phase>generate-sources</phase>
 						<goals>
 							<goal>wsimport</goal>
 						</goals>
@@ -88,7 +78,7 @@
 				<executions>
 					<execution>
 						<id>add-wsdl-source</id>
-						<phase>generate-sources</phase>
+						<phase>process-sources</phase>
 						<goals>
 							<goal>add-source</goal>
 						</goals>
@@ -100,6 +90,16 @@
 						<!-- [...] -->
 					</execution>
 				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
 			</plugin>
 
 		</plugins>
