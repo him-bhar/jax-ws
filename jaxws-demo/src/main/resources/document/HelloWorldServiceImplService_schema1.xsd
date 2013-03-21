@@ -5,6 +5,22 @@
 
   <xs:element name="getHelloWorldAsStringResponse" type="tns:getHelloWorldAsStringResponse"/>
 
+  <xs:element name="secureHelloWorldAsString" type="tns:secureHelloWorldAsString"/>
+
+  <xs:element name="secureHelloWorldAsStringResponse" type="tns:secureHelloWorldAsStringResponse"/>
+
+  <xs:complexType name="secureHelloWorldAsString">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="secureHelloWorldAsStringResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="getHelloWorldAsString">
     <xs:sequence>
       <xs:element name="arg0" type="xs:string" minOccurs="0"/>

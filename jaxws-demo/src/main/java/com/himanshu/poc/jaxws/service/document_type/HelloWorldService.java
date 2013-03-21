@@ -24,5 +24,6 @@ import javax.jws.soap.SOAPBinding.Style;
 public interface HelloWorldService {
 
 	String getHelloWorldAsString(String name);
+	String secureHelloWorldAsString(String name);
 
 }

@@ -12,15 +12,34 @@
   <message name="getHelloWorldAsStringResponse">
     <part name="parameters" element="tns:getHelloWorldAsStringResponse"/>
   </message>
+  <message name="secureHelloWorldAsString">
+    <part name="parameters" element="tns:secureHelloWorldAsString"/>
+  </message>
+  <message name="secureHelloWorldAsStringResponse">
+    <part name="parameters" element="tns:secureHelloWorldAsStringResponse"/>
+  </message>
   <portType name="HelloWorldService">
     <operation name="getHelloWorldAsString">
       <input message="tns:getHelloWorldAsString"/>
       <output message="tns:getHelloWorldAsStringResponse"/>
     </operation>
+    <operation name="secureHelloWorldAsString">
+      <input message="tns:secureHelloWorldAsString"/>
+      <output message="tns:secureHelloWorldAsStringResponse"/>
+    </operation>
   </portType>
   <binding name="HelloWorldServiceImplPortBinding" type="tns:HelloWorldService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
     <operation name="getHelloWorldAsString">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="secureHelloWorldAsString">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
